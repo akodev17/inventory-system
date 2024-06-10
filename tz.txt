@@ -1,0 +1,88 @@
+start project
+
+npm i 
+
+npm start
+
+PORT: localhost:3000/
+
+API
+/categories
+/products
+/contracts
+/inventories
+
+END POINTS: 
+Categories
+POST /categories: Create a new category
+GET /categories: Get all categories
+GET /categories/:id: Get a category by ID
+PUT /categories/:id: Update a category by ID
+DELETE /categories/:id: Delete a category by ID
+
+example: 
+post: localhost:3000/categories 
+    {
+        "name": "newcategory"
+    }
+get: localhost:3000/categories
+get with id: localhost:3000/categories/666674663d2f682f900172c9
+put: localhost:3000/categories/666674663d2f682f900172c9 
+    {
+        "name":"newupdatecategory"
+    }
+delete: localhost:3000/categories/666674663d2f682f900172c9
+
+PRODUCTS
+POST /products: Create a new product
+GET /products: Get all products
+GET /products/:id: Get a product by ID
+PUT /products/:id: Update a product by ID
+DELETE /products/:id: Delete a product by ID
+
+post: localhost:3000/products/
+    {
+        "name": "newproduct",
+        "model": "newmodel",
+        "category: "666674663d2f682f900172c9"
+    }
+
+CONTRACTS
+POST /contracts: Create a new contract
+GET /contracts: Get all contracts
+GET /contracts/:id: Get a contract by ID
+PUT /contracts/:id: Update a contract by ID
+DELETE /contracts/:id: Delete a contract by ID
+
+post: localhost:3000/contracts
+{
+  "contractNumber": "Con123",
+  "date": "2024-06-01",
+  "listProducts": [
+    {
+      "product": "60d5ec49c7e6c72088dcf9b4",
+      "price": 2000,
+      "quantity": 10
+    }
+  ]
+}
+"post qivotkanda date: yy-mm-dd ko'rnishda bo'ladi"
+
+Inventories
+
+POST /inventories: Create a new inventory entry
+GET /inventories: Get all inventory entries
+GET /inventories/:id: Get an inventory entry by ID
+PUT /inventories/:id: Update an inventory entry by ID
+DELETE /inventories/:id: Delete an inventory entry by ID
+
+post: localhost:3000/inventories
+{
+    "contract": "contractidstring  60d5ec49c7e6c72088dcf9b4"
+    "product": "productidstring  60d5ec49c7e6c72088dcf9b4"
+    "uniqueNumber": "0000001"
+}
+
+uniqueNumber logic 
+
+yunik id yaratvotkanda postmandan har qanqa son kiritsayam 6 no'l va raqam ketmaketligida yunik raqam yaraladi masalan: postmandan "uniqueNumber": 1212 soni kiritilsa dbdan 0000001, 0000002, 0000003 ko'rnishda keturadi.
